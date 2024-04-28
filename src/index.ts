@@ -6,7 +6,9 @@ import socketManager from "./socket/socketManager";
 
 dotenv.config();
 const port = process.env.PORT || 3001;
-app.httpServer.listen(port);
+const hostname = '0.0.0.0';
+// @ts-ignore
+app.httpServer.listen(port, hostname);
 mongoConnect();
 
 app.httpServer.on("listening", () => {
