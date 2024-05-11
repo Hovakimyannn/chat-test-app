@@ -6,6 +6,7 @@ import { HelperService } from "../services/helper.service";
 
 class AuthController{
     async login(req: Request, res: Response, next: NextFunction) {
+        console.log(req.body);
         try{
             const {name, password} = req.body;
             const data = await authService.auth(name, password);

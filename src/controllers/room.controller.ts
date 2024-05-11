@@ -15,6 +15,17 @@ class RoomController {
             return next(error);
         }
     }
+
+    async get(req: Request, res: Response, next: NextFunction) {
+        try {
+            const data = await roomService.getRooms();
+            res
+                .status(200)
+                .send(HelperService.formatResponse(respStatus.SUCCESS, { rooms: data }));
+        } catch (error) {
+            return next(error);
+        }
+    }
 }
 
 export default new RoomController();

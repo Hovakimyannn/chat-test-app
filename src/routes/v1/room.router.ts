@@ -7,5 +7,6 @@ const router = Router();
 
 router.get("/:id/messages", auth, messageController.getMessagesByRoomID);
 router.post("/", auth, roomController.create);
+router.get("/", auth, roomController.get);
 
 export default router;
